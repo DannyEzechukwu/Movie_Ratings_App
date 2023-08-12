@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.user_id }} - Details{% endblock %}
+
+{% block body %}
+
+<h1> User ID: {{ user.user_id }}, User E-mail: {{ user.email }}</h1>
+
+{% for i in range(user.rating|length ) %}
+<h2> Rating: {{ user.rating[i].rating_id }}, Score: {{  user.rating[i].score }} </h2>
+{% endfor %}
+
+
+
+
+<form action ='/'>
+<input type="submit" name="home_page" value="Back to login page">
+</form>
+
+{% endblock %}

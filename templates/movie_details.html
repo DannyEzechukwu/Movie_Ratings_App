@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ movie.movie_title }} - Details{% endblock %}
+
+{% block body %}
+<h1>{{ movie.movie_title }}</h1>
+
+
+  <form action = '/new_rating/{{ movie.movie_id }}'  method="POST" >
+    <fieldset class="rating">
+       <legend>Rate the movie:</legend>
+       <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked=""
+          aria-label="No rating.">
+      <label for="no-rate">0 stars</label>
+       <input type="radio" id="rate1" name="rating" value="1">
+       <label for="rate1">1 star</label>
+       <input type="radio" id="rate2" name="rating" value="2">
+       <label for="rate2">2 stars</label>
+       <input type="radio" id="rate3" name="rating" value="3">
+       <label for="rate3">3 stars</label>
+       <input type="radio" id="rate4" name="rating" value="4">
+       <label for="rate4">4 stars</label>
+       <input type="radio" id="rate5" name="rating" value="5">
+       <label for="rate5">5 stars</label>
+       <span class="focus-ring"></span>
+       <input type="submit"> 
+    </fieldset>
+ </form>
+
+
+
+<p>
+  {{ movie.movie_overview }}
+</p>
+
+<img src="{{ movie.poster_path }}">
+
+<form action ='/'>
+<input type="submit" name="home_page" value="Back to login page">
+ </form>
+
+{% endblock %}
